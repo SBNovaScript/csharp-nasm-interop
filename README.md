@@ -4,13 +4,13 @@ Bidirectional interop between C# (.NET 10) and NASM x86-64 assembly on Linux.
 
 ## Motivation
 
-Managed runtimes like .NET provide safety, garbage collection, and productivity — but
-sometimes you need to drop to bare metal. SIMD-heavy transforms, cycle-counted hot loops,
-or direct hardware interaction are all cases where hand-written assembly wins.
+Managed runtimes like .NET provide safety, garbage collection, and productivity, but
+sometimes it is necessary to compute lower-level operations. SIMD-heavy transforms, cycle-counted hot loops,
+or direct hardware interaction are all cases where hand-written assembly is favorable.
 
 Going the other direction is equally useful: assembly routines that need to report
 progress, log events, or evaluate dynamic logic can call back into managed code through
-function pointers, keeping the orchestration in C# where it belongs.
+function pointers can do so through C#.
 
 This project demonstrates both directions end-to-end with no C shim layer — C# talks
 directly to NASM-assembled shared libraries via P/Invoke, and NASM calls managed delegates
