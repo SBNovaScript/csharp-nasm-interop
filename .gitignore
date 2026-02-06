@@ -1,0 +1,47 @@
+# --- .NET ---
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet
+*.nuget.props
+*.nuget.targets
+
+# User-specific
+*.user
+*.suo
+*.rsuser
+*.userosscache
+*.sln.docstatus
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+*.vsidx
+launchSettings.json
+
+# Visual Studio Code
+.vscode/
+
+# --- NASM build artifacts ---
+*.o
+*.so
+*.a
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+Desktop.ini

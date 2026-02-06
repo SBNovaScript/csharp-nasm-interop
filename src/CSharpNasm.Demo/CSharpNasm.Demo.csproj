@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NativeAsmDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/../../asm'))</NativeAsmDir>
+  </PropertyGroup>
+
+  <Target Name="BuildNativeAsm" BeforeTargets="Build">
+    <Exec Command="make -C $(NativeAsmDir)" />
+  </Target>
+
+  <Target Name="CopyNativeLib" AfterTargets="Build">
+    <Copy SourceFiles="$(NativeAsmDir)/libinterop.so"
+          DestinationFolder="$(OutputPath)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="CleanNativeAsm" AfterTargets="Clean">
+    <Exec Command="make -C $(NativeAsmDir) clean" IgnoreExitCode="true" />
+  </Target>
+
+</Project>
